@@ -1,7 +1,7 @@
 // <!-- Java Code-->
 
 // Variables to be used
-var wins = 0;
+var wins =0;
 
 var wordOptions = ["cat", "dog", "frog", "elephant"];
 
@@ -13,25 +13,25 @@ var incorrectLetters = [];
 
 var currentWord = [];
 
+
 // Creates the blanks shown on screen to represent the word initially
 	for (var i = 0; i < randomWord.length; i++) {
 		currentWord.push("_");
 	}
 
-console.log(randomWord);
-console.log(currentWord);
+	// Takes out the commas between the letters
+		currentWordHTML = currentWord.join(" ");
 
-// Takes out the commas between the letters
-	currentWordHTML = currentWord.join(" ");
+	// Links id code from HTML doc with JavaScript so it can be displayed on screen
+		document.querySelector("#currentWord").innerHTML = currentWordHTML;
 
-// Links id code from HTML doc with JavaScript so it can be displayed on screen
-	document.querySelector("#currentWord").innerHTML = currentWordHTML;
+		document.querySelector("#numGuessesLeft").innerHTML = guesses;
 
-	document.querySelector("#numGuessesLeft").innerHTML = guesses;
+
 
 //This captures key user selects
 	document.onkeyup = function(event) {
-		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 	// Checks to see if key selected matches letter in random word
 	if (randomWord.indexOf(userGuess) >= 0) {
@@ -61,13 +61,20 @@ console.log(currentWord);
 			incorrectLettersHTML = incorrectLetters.join(" ");
 			document.querySelector("#incorrectLetters").innerHTML = incorrectLettersHTML.toUpperCase();
 		}
-	}
 
-// Add 1 to the wins
-	function	
+		function haveTheyWon(){
+			if (guesses >= 0){
+			wins = wins + 1;
+			}
 
+			else {
+				wins = wins +0;
+			}
 
+			console.log("wins");
+		}
+		document.querySelector("#numWins").innerHTML = wins;
 
-
+}
 
 
