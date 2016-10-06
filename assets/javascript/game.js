@@ -3,7 +3,7 @@
 // Variables to be used
 var wins =0;
 
-var wordOptions = ["cat", "dog", "frog", "elephant"];
+var wordOptions = ["witch", "potion", "werewolf", "dracula",  "mummy",  "ghost"];
 
 var randomWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
 
@@ -15,22 +15,24 @@ var currentWord = [];
 
 
 // Creates the blanks shown on screen to represent the word initially
-	for (var i = 0; i < randomWord.length; i++) {
-		currentWord.push("_");
-	}
+for (var i = 0; i < randomWord.length; i++) {
+	currentWord.push("_");
+}
 
-	// Takes out the commas between the letters
-		currentWordHTML = currentWord.join(" ");
+// Takes out the commas between the letters
+currentWordHTML = currentWord.join(" ");
 
-	// Links id code from HTML doc with JavaScript so it can be displayed on screen
-		document.querySelector("#currentWord").innerHTML = currentWordHTML;
+console.log(randomWord);
 
-		document.querySelector("#numGuessesLeft").innerHTML = guesses;
+// Links id code from HTML doc with JavaScript so it can be displayed on screen
+document.querySelector("#currentWord").innerHTML = currentWordHTML;
+
+document.querySelector("#numGuessesLeft").innerHTML = guesses;
 
 
 
 //This captures key user selects
-	document.onkeyup = function(event) {
+document.onkeyup = function(event) {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 	// Checks to see if key selected matches letter in random word
@@ -44,7 +46,7 @@ var currentWord = [];
 		// Displays correct letter onscreen, in correct position...in upper case
 		currentWordHTML = currentWord.join(" ");
 		document.querySelector("#currentWord").innerHTML = currentWordHTML.toUpperCase();
-		}
+	}
 
 		// Checks if letter has already been selected. Will not count against #guesses		
 		else if (incorrectLetters.indexOf(userGuess) >=0) {
@@ -62,19 +64,52 @@ var currentWord = [];
 			document.querySelector("#incorrectLetters").innerHTML = incorrectLettersHTML.toUpperCase();
 		}
 
-		function haveTheyWon(){
-			if (guesses >= 0){
-			wins = wins + 1;
+		if (currentWord.indexOf("_") < 0) {
+			wins++;
+			randomWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+			guesses = 10;
+			incorrectLetters = [];
+			currentWord = [];
+
+			// Creates the blanks shown on screen to represent the word initially
+			for (var i = 0; i < randomWord.length; i++) {
+			currentWord.push("_");
 			}
 
-			else {
-				wins = wins +0;
-			}
+			// Takes out the commas between the letters
+			currentWordHTML = currentWord.join(" ");
 
-			console.log("wins");
+			// Links id code from HTML doc with JavaScript so it can be displayed on screen
+			document.querySelector("#currentWord").innerHTML = currentWordHTML;
+
+			document.querySelector("#numGuessesLeft").innerHTML = guesses;
+
+			document.querySelector("#numWins").innerHTML = wins;
+
 		}
-		document.querySelector("#numWins").innerHTML = wins;
+		else if (guesses === 0) {
+			lost++;
+			randomWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+			guesses = 10;
+			incorrectLetters = [];
+			currentWord = [];
 
-}
+			// Creates the blanks shown on screen to represent the word initially
+			for (var i = 0; i < randomWord.length; i++) {
+			currentWord.push("_");
+			}
+
+			// Takes out the commas between the letters
+			currentWordHTML = currentWord.join(" ");
+
+			// Links id code from HTML doc with JavaScript so it can be displayed on screen
+			document.querySelector("#currentWord").innerHTML = currentWordHTML;
+
+			document.querySelector("#numGuessesLeft").innerHTML = guesses;
+
+			document.querySelector("#numWins").innerHTML = wins;
+
+		}	
+	}
 
 
