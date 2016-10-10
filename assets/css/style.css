@@ -1,0 +1,72 @@
+/*Fonts to use:
+font-family: 'Hind', sans-serif;
+font-family: 'Creepster', cursive;*/
+
+/*Background Image*/
+
+body {
+	background: url("../images/halloween_pumpkin_background.jpg");
+	font-family: 'Hind', sans-serif;
+}
+
+
+/*Haunted Hangman Header*/
+h1 {
+	font-family: 'Creepster', cursive;;
+	font-size: 100pt;
+	text-align: center;
+	text-shadow: 10px 10px black;
+	stroke: 10px;
+	color: #e6ca2e;
+	}
+
+/*Number of Wins Line*/
+	#wins {
+		font-family: 'Hind', sans-serif;
+		text-align: center;
+		font-size: 30pt;
+		font-weight: bolder;
+		color: black;
+		float: left;
+		margin-left: 380px;
+		}
+
+	#numberWins {
+		text-align: center;
+		font-size: 30pt;
+		color: black;
+		float: right;
+		margin-right: 410px;
+		}
+
+.col-sm-4 {
+	margin: 0px 0px 0px 60px;
+	background-color: black;
+}
+
+ .col-md-6 {
+ 	margin: 0px 0px 0px 50px;
+	background-color: black;
+
+ }
+
+#currentWordText {
+	font-size: 20pt;
+
+}
+
+#currentWord {
+	font-size: 45pt;
+}
+
+#guessesText {
+	font-size: 10pt;
+}
+
+#numGuessesLeft {
+	font-size: 15pt;
+}
+
+#incorrectLetters {
+	font-size: 15pt;
+}

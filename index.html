@@ -4,39 +4,55 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Haunted Hangman</title>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Creepster|Hind" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
+	<header>
 		<h1>Haunted Hangman</h1>
-		<h2 id="gameHeader"> </h2>
-		<p><br></p>
+	</header>
 
-		<p>Wins</p>
-		<p id="numWins"></p>
-		<p><br></p>
+	<div class="container">
+		<div class="row">
+			<div id="wins" class="col-lg-4">
+				<p>Wins:</p>
+			</div>
+			<div id="numberWins" class="col-lg-4">
+				<p id="numWins"></p>
+			</div>
+		</div>
 
-		<p>Current Word</p>
-		<p id="currentWord"></p>
-		<p><br></p>
+		<div class="row">	
+			<div class="col-sm-4 panel panel-default">
+  				<div class="panel-body">
+				<img class="img-rounded img-responsive center-block" id="gameImage" src="assets/images/PlayIfYouDare.jpg" alt="Spooky">
 
+  				</div>
+			</div>
 
-		<p>Select a Letter</p>
-		<p><br></p>
+			<div class="col-md-6 panel panel-default">
+  				<div class="panel-body">
 
-		<p>Number of Guesses Remaining</p>
-		<p id="numGuessesLeft"></p>
-		<p><br></p>
+					<p>Select a letter</p>
+					<u id="currentWordText">Current Word</u>
+					<p id="currentWord"></p>
+					<p><br></p>
 
+					<p id="guessesText">Guesses Remaining</p>
+					<p id="numGuessesLeft"></p>
+					<p><br></p>
 
-		<p>Letters Already Guessed</p>
-		<p id="incorrectLetters"></p>
-
-	</div>
+					<p id="guessesText">Letters Already Guessed</p>
+					<p id="incorrectLetters"></p>
+				</div>
+			</div>
+		</div>
+	</div>	
 
 <script src="assets/javascript/game.js"></script>
 
